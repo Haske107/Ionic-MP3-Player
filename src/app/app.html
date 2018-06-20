@@ -1,0 +1,32 @@
+<ion-menu [content]="nav">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list class="sidebar-ion-list">
+      <button ion-item icon-left
+        (click)="onGoTo(rootPage)" >
+        <ion-icon name="ios-headset"></ion-icon>
+        Music Library
+      </button>
+      <button ion-item icon-left
+        (click)="onGoTo(aboutPage)" >
+        <ion-icon name="ios-information-circle-outline"></ion-icon>
+        About
+      </button>
+      <!-- <button ion-item icon-left
+        (click)="onGoTo(exhibitPage)" >
+        <ion-icon name="ios-home"></ion-icon>
+        Uffizi Gallery
+      </button> -->
+      <button ion-item icon-left
+        (click)="onGoTo(settingsPage)" >
+        <ion-icon name="ios-settings"></ion-icon>
+        Settings
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #nav swipeBackEnabled="false"></ion-nav>

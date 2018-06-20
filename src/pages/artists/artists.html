@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only
+        menuToggle >
+        <ion-icon name="menu" color="white" ></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title *ngIf="!showSearch" color="white" >Music Library</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="showSearch = !showSearch" >
+        <ion-icon name="ios-search-outline"></ion-icon>
+      </button>
+    </ion-buttons>    
+    <ion-searchbar *ngIf="showSearch" [(ngModel)]="searchQuery" (ionInput)="onFilterUsers()" [showCancelButton]="true" (ionCancel)="onCancelSearch()"
+      placeholder="Search Artists..." class="artists-searchbar" >
+    </ion-searchbar>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <!-- <ion-row>
+      <ion-col no-padding>
+        <img src="https://firebasestorage.googleapis.com/v0/b/audio-guide-b67da.appspot.com/o/Uffizi_Gallery_Florence_1.jpg?alt=media&token=658a541f-9896-4109-b919-c063f4c01723" style="width: 100%;" alt="Uffizi Gallery" />
+      </ion-col>
+    </ion-row> -->
+    <ion-row no-padding>
+      <ion-col>
+        <!-- <h3>Select an artist to listen to.</h3> -->
+        <ion-list>
+          <ion-item-divider>Artists</ion-item-divider>
+          <button ion-item *ngFor="let artist of artists"
+            (click)="onGoToTracks(artist)">
+            <ion-icon name="ios-musical-note-outline" item-start></ion-icon>
+            <h3>{{ artist.name }}</h3>
+          </button>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col>
+        <a ion-button block href="http://www.uffizi.com/online-ticket-booking-uffizi-gallery.asp" target="_blank" title="Buy Tickets Uffizi Gallery">Buy Tickets</a>
+      </ion-col>
+    </ion-row> -->
+  </ion-grid>
+</ion-content>

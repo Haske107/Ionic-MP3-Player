@@ -1,0 +1,41 @@
+progress-bar {
+
+    .progress-outer {
+        width: 100%;
+        padding: 1px;
+        text-align: center;
+        background-color: map-get($colors, light-grey);
+        background: rgba(0, 0, 0, 0.15);
+        border-radius: 5px;
+    }
+
+    .progress-inner {
+        position: relative;
+        min-width: 1%;
+        white-space: nowrap;
+        // overflow: hidden;
+        padding: 2px;
+        background-color: map-get($colors, primary);
+        border-radius: 5px;
+    }
+    .progress-inner::after {
+        content: "";
+        position: absolute;
+        top: -2px;
+        right: 0;
+        background: map-get($colors, primary);
+        height: 8px;
+        width: 8px;
+        z-index: 3;
+        border-radius: 50%;
+    }
+
+}
+.track-player-row progress-bar {
+    .progress-inner {
+        background-color: map-get($colors, white);
+    }
+    .progress-inner::after {
+        background: map-get($colors, white);
+    }
+}

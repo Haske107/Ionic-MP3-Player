@@ -1,0 +1,109 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ track.title }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)" >
+        <ion-icon name="md-more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+<ion-content no-padding [class.trackSelected]="audioPlayerService.selectedTrack && audioPlayerService.selectedTrack === track" >
+  <div [style.backgroundImage]="'url('+ track.img +')'" class="track-img-bg"></div>
+  <ion-grid>
+
+    <ion-row *ngIf="!networkService.connected" padding>
+      <ion-col>
+        <h3>Error</h3>
+        <p>Threre was an error processing that request. Please pull down to refresh, or check your network connection settings.</p>
+      </ion-col>
+    </ion-row>
+
+    <ng-container *ngIf="networkService.connected" >
+      <div class="track-img-wrapper" >
+        <img [src]="track.img" class="track-img" [alt]="track.title" />
+      </div>
+
+      <!-- <ion-fab top right *ngIf="!audioPlayerService.selectedTrack || audioPlayerService.selectedTrack !== track" class="track-play-fab" >
+        <button ion-fab (click)="onPlayTrack(track)" >
+        <ion-icon name="ios-play"></ion-icon>
+        </button>
+      </ion-fab> -->
+
+    </ng-container>
+
+  </ion-grid>
+</ion-content>
+<ion-footer no-padding>
+  <div class="track-player-wrapper">
+    <ion-row class="track-player-row" *ngIf="audioPlayerService.selectedTrack === track">
+      <ion-col col-12>
+          <progress-bar [progress]="audioPlayerService.selectedTrack.progress" (skipTo)="onSkipTo($event)" ></progress-bar>
+      </ion-col>
+    </ion-row>
+    <ion-row class="track-player-row" *ngIf="audioPlayerService.selectedTrack === track">
+      <ion-col col-6 no-padding>
+          <p style="margin: 0; color: white;">{{ convertToHHMMSS(audioPlayerService.audioPlayer[0].currentTime) }}</p>
+      </ion-col>
+      <ion-col col-6 text-right no-padding>
+          <p style="margin: 0; color: white;">{{ convertToHHMMSS(audioPlayerService.audioPlayer[0].duration) }}</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="track-player-row track-player-top-btns-row" >
+      <ion-col col-4 text-center>
+        <button ion-button clear class="track-btn" [class.active]="audioPlayerService.repeatTrack" (tap)="audioPlayerService.toggleRepeat()" >
+          <ion-icon name="ios-repeat" color="white"></ion-icon>
+        </button>            
+      </ion-col>
+      <ion-col offset-4 col-4 text-center>
+        <button ion-button clear class="track-btn" [class.active]="shuffle" (tap)="onToggleShuffle()" >
+          <ion-icon name="ios-shuffle" color="white"></ion-icon>
+        </button>            
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="track-player-row" style="margin-bottom: 16px;">
+      <ion-col col-5 text-center style="padding-right: 0;" >
+         <!-- [disabled]=""  -->
+        <button ion-button clear class="track-prev-btn" (click)="onGoToTrack(prevTrack, true)" (press)="onRewind()" >
+          <ion-icon name="ios-skip-backward" color="white"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-2 text-center no-padding>
+        <button ion-button class="track-play-btn" *ngIf="audioPlayerService.selectedTrack !== track" (click)="onPlayTrack(track)" >
+          <ion-icon name="ios-play" color="primary"></ion-icon>
+        </button>
+        <ng-container *ngIf="audioPlayerService.selectedTrack === track">
+          <button ion-button class="track-play-btn" *ngIf="!audioPlayerService.selectedTrack.playing" (click)="onResumeTrack()" >
+            <ion-icon name="ios-play" color="primary"></ion-icon>
+          </button>
+          <button ion-button class="track-play-btn" *ngIf="audioPlayerService.selectedTrack.playing" (click)="onPauseTrack()" >
+            <ion-icon name="ios-pause" color="primary"></ion-icon>
+          </button>            
+        </ng-container>
+      </ion-col>
+      <ion-col col-5 text-center style="padding-left: 0;" >
+        <button ion-button clear class="track-next-btn" (click)="onGoToTrack(nextTrack, true)" (press)="onFastFwd()" >
+          <ion-icon name="ios-skip-forward" color="white"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="track-player-row track-player-bottom-btns-row">
+      <ion-col col-4 text-center>
+        <button ion-button clear class="track-btn" (click)="onShowInfo()" >
+          <ion-icon name="ios-information-outline" color="white"></ion-icon>
+        </button>            
+      </ion-col>
+      <ion-col offset-4 col-4 text-center>
+        <button ion-button clear class="track-btn" (click)="onGoBack()" >
+          <ion-icon name="ios-list-box-outline" color="white"></ion-icon>
+        </button>            
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-footer>
+

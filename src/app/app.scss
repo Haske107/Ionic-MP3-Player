@@ -1,0 +1,172 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+h1, h2, h3, p, li {
+  color: #444;
+}
+h3:first-child {
+    margin-top: 0 !important;
+}
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.grid {
+  padding: 0;
+}
+.col {
+  padding: 4px;
+}
+.scroll-content {
+    background: map-get($colors, light);
+}
+page-track {
+  ion-footer {
+    border: none;
+    -webkit-box-shadow: 0 -2px 4px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 -2px 4px 0 rgba(0,0,0,0.5);
+  }
+
+}
+ion-header ion-navbar .toolbar-background-ios {
+    background: map-get($colors, primary);
+}
+.toolbar-title-ios {
+    color: map-get($colors, white);
+}
+.bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+    color: map-get($colors, white);
+}
+ion-toolbar .toolbar-background {
+    background: linear-gradient(60deg, #00BCD4, #488aff);
+}
+ion-toolbar ion-title.title {
+    color: map-get($colors, white);
+}
+ion-header ion-navbar .toolbar-background {
+    background: linear-gradient(60deg, #00BCD4, #488aff);
+}
+ion-searchbar .searchbar-input-container {
+    background: #fff;
+    border-radius: 5px;
+}
+ion-searchbar .searchbar-input-container input {
+    background: #fff !important;
+}
+ion-item-divider.item-divider {
+    background: map-get($colors, primary);
+    color: map-get($colors, white);
+}
+ion-content .scroll-content {
+    background: map-get($colors, light-grey);
+}
+.footer-player-first-row {
+  padding: 8px;
+  padding-bottom: 0;
+
+  ion-col {
+    padding: 0;
+  }
+
+  .footer-player-title {
+    margin: 4px 0 0 0 !important;
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: normal;
+  }
+  .footer-player-artist {
+    margin: 0; 
+    font-size: 1.4rem;
+    line-height: normal;
+    color: #8e9093;
+  }
+}
+.footer-player-second-row {
+  padding: 8px;
+
+  ion-col {
+    padding: 0;
+  }
+  .footer-player-progress-col {
+    padding: 4px 8px;
+  }
+}
+ion-fab.track-play-fab {
+  position: fixed;
+  top: 64px !important;
+}
+ion-footer {
+  // border-top: .55px solid rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 -2px 8px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 -2px 8px 0 rgba(0,0,0,0.5);
+}
+
+// .located {
+//   -moz-animation: bounce 2s infinite;
+//   -webkit-animation: bounce 2s infinite;
+//   animation: bounce 2s infinite;
+// }
+
+// @-moz-keyframes bounce {
+//   0%, 20%, 50%, 80%, 100% {
+//     -moz-transform: translateY(0);
+//     transform: translateY(0);
+//   }
+//   40% {
+//     -moz-transform: translateY(-30px);
+//     transform: translateY(-30px);
+//   }
+//   60% {
+//     -moz-transform: translateY(-15px);
+//     transform: translateY(-15px);
+//   }
+// }
+// @-webkit-keyframes bounce {
+//   0%, 20%, 50%, 80%, 100% {
+//     -webkit-transform: translateY(0);
+//     transform: translateY(0);
+//   }
+//   40% {
+//     -webkit-transform: translateY(-30px);
+//     transform: translateY(-30px);
+//   }
+//   60% {
+//     -webkit-transform: translateY(-15px);
+//     transform: translateY(-15px);
+//   }
+// }
+// @keyframes bounce {
+//   0%, 20%, 50%, 80%, 100% {
+//     -moz-transform: translateY(0);
+//     -ms-transform: translateY(0);
+//     -webkit-transform: translateY(0);
+//     transform: translateY(0);
+//   }
+//   40% {
+//     -moz-transform: translateY(-30px);
+//     -ms-transform: translateY(-30px);
+//     -webkit-transform: translateY(-30px);
+//     transform: translateY(-30px);
+//   }
+//   60% {
+//     -moz-transform: translateY(-15px);
+//     -ms-transform: translateY(-15px);
+//     -webkit-transform: translateY(-15px);
+//     transform: translateY(-15px);
+//   }
+// }

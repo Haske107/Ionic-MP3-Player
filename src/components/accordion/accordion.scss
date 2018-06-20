@@ -1,0 +1,30 @@
+accordion {
+  ion-card {
+    .card-header {
+      h3 {
+      }
+    }
+    .card-content {
+      border-top: .55px solid rgba(0, 0, 0, 0.3);
+      height: 0;
+      padding: 0;
+    }
+  }
+}
+accordion {
+  ion-card {
+    margin: 0 !important;
+    width: 100% !important;
+    box-shadow: none !important;
+  }
+  ion-card-header {
+      padding: 0 !important;
+  }
+  ion-card-header ion-list ion-item {
+      background: map-get($colors, primary) !important;
+  }
+  ion-card-header ion-list ion-item ion-label h3 {
+      color: map-get($colors, white) !important;
+  }
+}
+
