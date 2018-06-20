@@ -17,3 +17,19 @@ Have Ionic installed globally:
 
 Run application:
 `ionic serve`
+
+
+
+Gmail:
+Ionicmp3app@gmail.com
+ionicapp
+
+Heroku
+Ionicmp3app@gmail.com
+JustinEstrada123!@#
+
+
+
+Clone this Repo
+Upload to your git
+reattach heroku to your repo
